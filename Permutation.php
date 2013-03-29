@@ -14,7 +14,7 @@ class Permutation implements Iterator {
             $l = $list[$i];
             $this->elements[] = (object)array(
                 'head' => $l,
-                'tail' => new Permutation($this->except($list, $i))); 
+                'tail' => new Permutation(self::except($list, $i))); 
         } 
     }
 
@@ -26,7 +26,7 @@ class Permutation implements Iterator {
         return array_merge(array($currentHead), !$currentTail ? array() : $currentTail);
     } 
 
-    private function except(array $list, $exceptIndex) {
+    private static function except(array $list, $exceptIndex) {
         $shifted = array();
         $length = count($list);
         for ($i = 0; $i < $length; $i++) {
@@ -78,10 +78,6 @@ class Permutation implements Iterator {
 /*
 $permutation = new Permutation(str_split('hello'));
 foreach ($permutation as $p) {
-        $str = '';
-        foreach ($p as $e) {
-            $str .= $e . '';
-        }
-        print $str . PHP_EOL;
+        print implode('', $p) . PHP_EOL;
 }
 //*/
