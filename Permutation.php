@@ -75,7 +75,7 @@ class Permutation implements Iterator {
         return $this->currentElementIndex < count($this->elements);
     }
 }
-//*
+/*
 $permutation = new Permutation(str_split('hello'));
 foreach ($permutation as $p) {
         $str = '';
