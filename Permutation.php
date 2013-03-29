@@ -2,11 +2,11 @@
 
 class Permutation implements Iterator {
 
-    public $elements = array();
+    private $elements = array();
 
-    public $currentElementIndex = 0;
+    private $currentElementIndex = 0;
 
-    public $depth = 0;
+    private $depth = 0;
 
     public function __construct(array $list) {
         $this->depth = count($list);
@@ -26,7 +26,7 @@ class Permutation implements Iterator {
         return array_merge(array($currentHead), !$currentTail ? array() : $currentTail);
     } 
 
-    public function except(array $list, $exceptIndex) {
+    private function except(array $list, $exceptIndex) {
         $shifted = array();
         $length = count($list);
         for ($i = 0; $i < $length; $i++) {
@@ -40,7 +40,7 @@ class Permutation implements Iterator {
         $this->_next();
     }
 
-    public function _next() {
+    private function _next() {
         if ($this->currentElementIndex >= count($this->elements)) {
             return false;
         }
